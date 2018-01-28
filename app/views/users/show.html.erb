@@ -1,1 +1,7 @@
 <%= @user.nickname %>
+
+<%= image_tag(@github[:profile_picture_url]) %>
+
+<p> Follower count: <%= @github[:follower_count]%> </p>
+<p> Following count: <%= @github[:following_count] %> </p>
+<p> Public repo count: <%= @github[:public_repo_count] %> </p>

@@ -4,7 +4,11 @@ describe FetchGithubUserService do
   describe "#perform" do 
     let(:service) { FetchGithubUserService.new }
 
-    let(:result) { service.perform("nico24687") }
+    let(:result) do 
+      VCR.use_cassette("services/fetch_github_user_services") do
+        service.perform("nico24687")
+      end
+    end
 
     it "returns profile picture" do 
       expect(result[:profile_picture_url]).to eq("https://avatars1.githubusercontent.com/u/16985874?v=4")
