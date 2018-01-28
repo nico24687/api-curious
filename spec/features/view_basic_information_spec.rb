@@ -14,9 +14,9 @@ feature "user visits /nico24687" do
     visit user_path(nickname: "nico24687")
 
     expect(page).to have_content("nico24687")
-    expect(page).to have_xpath("//img[@src=\"http://example.com/nico.jpg\"]")
-    expect(page).to have_content("Follower count: 1")
-    expect(page).to have_content("Following count: 100")
-    expect(page).to have_content("Public repo count: 200")
+    expect(page).to have_css("img[src*='http://example.com/nico.jpg']")
+    expect(page).to have_content("Followers 1")
+    expect(page).to have_content("Following 100")
+    expect(page).to have_content("Repositories 200")
   end
 end

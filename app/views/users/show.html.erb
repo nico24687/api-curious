@@ -1,7 +1,30 @@
-<%= @user.nickname %>
 
-<%= image_tag(@github[:profile_picture_url]) %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+          <img src="<%= @github[:profile_picture_url]%> " class="img-thumbnail">
+        </div>
+        <div class="col-md-8">
+          <ul class="nav nav-tabs">
+            <li role="presentation" class="active"><a href="#">Overview</a></li>
+            <li role="presentation"><a href="#">Repositories <span class="badge"><%= @github[:public_repo_count] %> </span></a></li>
+            <li role="presentation"><a href="#"> Following <span class="badge"><%= @github[:following_count] %> </span> </a></li>
+            <li role="presentation"><a href="#"> Followers <span class="badge"><%= @github[:follower_count]%> </span> </a></li>
+          </ul>
+        </div>
+    </div>
+</div>
 
-<p> Follower count: <%= @github[:follower_count]%> </p>
-<p> Following count: <%= @github[:following_count] %> </p>
-<p> Public repo count: <%= @github[:public_repo_count] %> </p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+           <h3> <%= @user.name %></h3>
+           <h5><%= @user.nickname %></h5>  
+        </div>
+    </div>
+</div>
+
+
+
+
+
