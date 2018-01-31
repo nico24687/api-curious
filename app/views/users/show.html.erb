@@ -1,4 +1,3 @@
-
 <div class="container">
     <div class="row">
         <div class="col-md-4">
@@ -11,11 +10,14 @@
             <li role="presentation"><a href="#"> Following <span class="badge"><%= @github[:following_count] %> </span> </a></li>
             <li role="presentation"><a href="#"> Followers <span class="badge"><%= @github[:follower_count]%> </span> </a></li>
           </ul>
-
+          
         </div>
     </div>
 </div>
 
+
+ 
+      
 <div class="container">
     <div class="row">
         <div class="col-md-4">
@@ -35,26 +37,32 @@
 <div class="container">
     <div class="row">
         <div class="col-md-offset-4 col-md-8">
-
             <h3>Recent commits</h3>
-            <% @github_activity.each do |commits| %>
-                <% commits.each do |commit| %>
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <%= commit[:message].capitalize %>
-                        </li>
-                    </ul>
-                <% end %>
-            <% end %>
-
-
+                <ul class="list-group">
+                    <% @github_activity.each do |commits| %>
+                        <% commits.each do |commit| %>
+                                <li class="list-group-item">
+                                    <%= commit[:message].capitalize %>
+                                </li>
+                        <% end %>
+                    <% end %>
+                </ul>
         </div>
     </div>
 </div>
 
 
+<h2>A list of my repositories</h2>
+
+<% @repos.each do |repo| %>
+    <%= repo.name %>
+    <%= repo.description %>
+<% end %>
 
 
+
+<h1>Create a repository</h1>
+<%= link_to "Create a repository", new_repository_path %>
 
 
 

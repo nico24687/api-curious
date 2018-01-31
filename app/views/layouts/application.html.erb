@@ -6,7 +6,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" >
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -19,10 +19,29 @@
     <nav class="navbar navbar-inverse">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">
-            <img alt="Brand" src="http://danielsaidi.com/assets/img/link-icons/github.png" height="30" width="30">
+          <a class="navbar-brand" href="#" style="padding-top: 9px;">
+            <img alt="" src="https://shefcompsoc.uk/images/social/github.png" height="30" width="30" >
           </a>
         </div>
+          <form class="navbar-form navbar-left">
+              <div class="form-group"> 
+                  <input class="form-control" placeholder="Search Github"> 
+              </div> 
+          </form>
+          <ul class="nav navbar-nav">
+            <li><a href="#">Pull Requests</a></li>
+            <li><a href="#">Issues</a></li>
+            <li><a href="#">Marketplace</a></li>
+            <li><a href="#">Explore</a></li>
+          </ul>
+           <ul class="nav navbar-nav navbar-right">
+            <li><i class="fa fa-bell" style="padding-top: 20px; color: #e1e1e1; padding-right: 10px;" aria-hidden="true"></i></li>
+            <li><i class="fa fa-plus" style="padding-top: 20px; color: #e1e1e1;" aria-hidden="true"></i></li>
+            <li><i class="fa fa-caret-down" style="padding-top: 20px; color: #e1e1e1; padding-left: 3px;" aria-hidden="true"></i></li>
+            <% if current_user == nil %>
+            <li><%= link_to "Login", "/auth/github" %></li>
+            <% end %>
+           </ul>
       </div>
     </nav>
 

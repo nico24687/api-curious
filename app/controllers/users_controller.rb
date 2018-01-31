@@ -4,5 +4,6 @@ class UsersController < ApplicationController
     @github = FetchGithubUserService.new.perform(@user.nickname)
     @github_activity = FetchGithubUserActivityService.new.perform(@user.nickname)
     @github_organizations = FetchGithubOrganizationMembershipService.new(@user.github_token).perform
+    @repos = FetchGithubRepositoriesService.new(@user.github_token).perform
   end
 end
