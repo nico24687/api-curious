@@ -2,6 +2,14 @@
     <div class="row">
         <div class="col-md-4">
           <img src="<%= @github[:profile_picture_url]%> " class="img-thumbnail">
+           <h3> <%= @user.name %></h3>
+           <h6><%= @user.nickname %></h6> 
+           <h6><%= @github[:summary] %> </h6>
+           </br>     
+           <h4>Organizations</h4>
+            <% @github_organizations.each do |organization| %>
+                <img src = "<%= organization[:avatar_url]%>" height="40">
+            <% end %>   
         </div>
         <div class="col-md-8">
           <ul class="nav nav-tabs">
@@ -10,8 +18,30 @@
             <li role="presentation"><a href="#"> Following <span class="badge"><%= @github[:following_count] %> </span> </a></li>
             <li role="presentation"><a href="#"> Followers <span class="badge"><%= @github[:follower_count]%> </span> </a></li>
           </ul>
-          <div>
+          <h4>Popular Repositories </h4>
+
+            <% @repos.first(6).values_at(* @repos.each_index.select {|i| i.even?}) do |repo| %>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="panel panel-default">
+                    <div class="panel-body">
+                        <%= repo.name %>
+                    </div>
+                    </div>
+                </div>
+            <% end %>
+            <% @repos.first(6).values_at(* @repos.each_index.select {|i| i.odd?}) do |repo| %>
+                <div class="col-md-6">
+                    <div class="panel panel-default">
+                    <div class="panel-body">
+                        <%= repo.name %>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <% end %>
     
+          <div>
         </div>
     </div>
 </div>
@@ -19,20 +49,7 @@
 
  
       
-<div class="container">
-    <div class="row">
-        <div class="col-md-4">
-           <h3> <%= @user.name %></h3>
-           <h6><%= @user.nickname %></h6> 
-           <h6><%= @github[:summary] %> </h6>
-           </br>     
-           <h4>Organizations</h4>
-            <% @github_organizations.each do |organization| %>
-                <img src = "<%= organization[:avatar_url]%>" height="40">
-            <% end %>
-        </div>
-    </div>
-</div>
+
 
 
 <div class="container">
