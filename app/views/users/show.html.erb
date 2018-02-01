@@ -10,7 +10,8 @@
             <li role="presentation"><a href="#"> Following <span class="badge"><%= @github[:following_count] %> </span> </a></li>
             <li role="presentation"><a href="#"> Followers <span class="badge"><%= @github[:follower_count]%> </span> </a></li>
           </ul>
-          
+          <div>
+    
         </div>
     </div>
 </div>
@@ -54,7 +55,7 @@
 
 <h2>A list of my repositories</h2>
 
-<% @repos.each do |repo| %>
+<% @repos.first(6).each do |repo| %>
     <%= repo.name %>
     <%= repo.description %>
 <% end %>
