@@ -9,6 +9,5 @@ class CreateGithubRepositoryService
   def perform(repository)
      response = @faraday.post("/user/repos")
      body = JSON.parse(response.body)
-     binding.pry 
   end
 end
